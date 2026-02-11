@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">  
+    <head>
+        <title>Jeu du pendu</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body class="modeConfig">
+        <section id="popup">
+            <div class="auth-container">
+
+                <div id="loginBlock">
+                    <h2>Connexion</h2>
+                    <label for="loginUsername">Nom d'utilisateur :</label>
+                    <input type="text" id="loginUsername" placeholder="Entrez votre nom d'utilisateur">
+
+                    <label for="loginPassword">Mot de passe :</label>
+                    <input type="password" id="loginPassword" placeholder="Entrez votre mot de passe">
+
+                    <button id="loginBtn">Se connecter</button>
+                    <div id="loginMessage"></div>
+                </div>
+
+                <div id="registerBlock">
+                    <h2>Inscription</h2>
+                    <label for="registerUsername">Nom d'utilisateur :</label>
+                    <input type="text" id="registerUsername" placeholder="Choisissez un nom d'utilisateur">
+
+                    <label for="registerPassword">Mot de passe :</label>
+                    <input type="password" id="registerPassword" placeholder="Choisissez un mot de passe">
+
+                    <button id="registerBtn">S'inscrire</button>
+                    <div id="registerMessage"></div>
+                </div>
+            </div>
+        </section> 
+
+        <header>
+            
+            <h1 id="titre">Jeu du pendu</h1>
+            <div id="userArea">
+                <button id="logoutBtn">Déconnexion</button>
+                <div id="userDisplay">Connecté : <span id="usernameDisplay">Invité</span></div>
+            </div>
+            </header>
+        
+        <aside id="pendu">
+            <div id="gimage">
+                <svg width="200" height="300"> 
+                    <rect y="280" x="2" width="180" height="5" style="fill:rgb(227, 126, 181);stroke-width:3;stroke:black" /> 
+                    <line x1="20" y1="80" x2="70" y2="20" style="stroke:black;stroke-width:3"/>
+                    <line x1="20" y1="280" x2="20" y2="20" style="stroke:black;stroke-width:3"/> 
+                    <line x1="18" y1="20" x2="120" y2="20" style="stroke:black;stroke-width:3"/> 
+                    <line id="i1" x1="118" y1="20" x2="118" y2="50" style="stroke:black;stroke-width:3"/>
+                    <circle id="i2" cx="118" cy="70" r="25" stroke="black" stroke-width="3" fill="#f7cbee" /> 
+                    <line id="i3" x1="118" y1="95" x2="118" y2="190" style="stroke:black;stroke-width:3"/>
+                    <line id="i4" x1="118" y1="120" x2="80" y2="150" style="stroke:black;stroke-width:3"/>
+                    <line id="i5" x1="118" y1="120" x2="156" y2="150" style="stroke:black;stroke-width:3"/> 
+                    <line id="i6" x1="118" y1="190" x2="80" y2="230" style="stroke:black;stroke-width:3"/> 
+                    <line id="i7" x1="118" y1="190" x2="156" y2="230" style="stroke:black;stroke-width:3"/> 
+                </svg>
+            </div>
+        </aside>
+
+        <main>
+            <span id="loader">Chargement... </span>
+            <section id="config">
+                <p>
+                    <input type="button" value="Nouvelle partie" id="play">
+                </p>
+                <p><input type="button" value="Continuer" id="continue"></p>
+
+                <label for="difficulty">Niveau de difficulté :</label>
+                <select id="difficulty">
+                    <option value="easy">Facile</option>
+                    <option value="medium">Moyen</option>
+                    <option value="hard">Difficile</option>
+                    <option value="auto" selected>Auto (facile)</option>
+                </select>
+            </section>
+
+            <section id="jeu"> 
+                <div id="chronoContainer">
+                    <div id="chronoTime">00:00</div>
+                    <div id="chronoBar"></div>
+                </div>
+                <div id="mot"></div>
+                <div id="erreurs"><p>Erreurs : <span id="erreurCount">0</span></p> </div>
+                <div id="inputLetter">
+                    <label for="letterInput">Entrez une lettre :</label>
+                    <input type="text" id="letterInput" maxlength="1" />
+                    <button id="testLetter">Tester</button>
+                </div>
+                <div id="message"></div>
+                <p><button id="replay" style="display:none;">REJOUER</button></p>
+                <button id="changeDifficultyBtn" style="display:none;">Changer de difficulté</button>
+            </section>
+        </main>
+        
+        <aside id="lettres">
+            <p id="chars">
+                <span id="A" onclick="clicSurUneLettre('A')">A</span>
+                <span id="B" onclick="clicSurUneLettre('B')">B</span>
+                <span id="C" onclick="clicSurUneLettre('C')">C</span>
+                <span id="D" onclick="clicSurUneLettre('D')">D</span>
+                <span id="E" onclick="clicSurUneLettre('E')">E</span>
+                <span id="F" onclick="clicSurUneLettre('F')">F</span>
+                <span id="G" onclick="clicSurUneLettre('G')">G</span>
+                <span id="H" onclick="clicSurUneLettre('H')">H</span>
+                <span id="I" onclick="clicSurUneLettre('I')">I</span>
+                <span id="J" onclick="clicSurUneLettre('J')">J</span>
+                <span id="K" onclick="clicSurUneLettre('K')">K</span>
+                <span id="L" onclick="clicSurUneLettre('L')">L</span>
+                <span id="M" onclick="clicSurUneLettre('M')">M</span>
+                <span id="N" onclick="clicSurUneLettre('N')">N</span>
+                <span id="O" onclick="clicSurUneLettre('O')">O</span>
+                <span id="P" onclick="clicSurUneLettre('P')">P</span>
+                <span id="Q" onclick="clicSurUneLettre('Q')">Q</span>
+                <span id="R" onclick="clicSurUneLettre('R')">R</span>
+                <span id="S" onclick="clicSurUneLettre('S')">S</span>
+                <span id="T" onclick="clicSurUneLettre('T')">T</span>
+                <span id="U" onclick="clicSurUneLettre('U')">U</span>
+                <span id="V" onclick="clicSurUneLettre('V')">V</span>
+                <span id="W" onclick="clicSurUneLettre('W')">W</span>
+                <span id="X" onclick="clicSurUneLettre('X')">X</span>
+                <span id="Y" onclick="clicSurUneLettre('Y')">Y</span>
+                <span id="Z" onclick="clicSurUneLettre('Z')">Z</span>
+            </p>
+        </aside>
+
+        <script src="./script.js" defer></script>
+        <footer>
+  <p>© El Gares Tasnim Peip2 G4 - Projet réalisé le 18 juin 2025 </p>
+</footer>      
+    </body>
+</html>
