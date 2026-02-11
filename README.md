@@ -54,14 +54,14 @@ Le frontend communique avec les routes `/api/...`.
 
 # 🚀 Lancer le projet en local
 
-## 1️⃣ Cloner le dépôt
+### 1️⃣ Cloner le dépôt
 
 ```bash
 git clone https://github.com/TONPSEUDO/jeu-du-pendu.git
 cd jeu-du-pendu
 ```
 
-## 2️⃣ Installer les dépendances
+### 2️⃣ Installer les dépendances
 
 ```bash
 npm install
@@ -69,7 +69,7 @@ npm install
 
 Cela installe automatiquement les packages nécessaires (`jsonwebtoken`, etc.).
 
-## 3️⃣ Démarrer le serveur
+### 3️⃣ Démarrer le serveur
 
 ```bash
 node index.js
@@ -81,7 +81,7 @@ Si tout fonctionne, le terminal affiche :
 Serveur en écoute sur http://localhost:8000
 ```
 
-## 4️⃣ Ouvrir l’application
+### 4️⃣ Ouvrir l’application
 
 Dans votre navigateur :
 
@@ -89,7 +89,7 @@ Dans votre navigateur :
 
 ---
 
-# ⚠️ Remarques
+### ⚠️ Remarques
 
 * Le serveur doit rester lancé pendant l’utilisation.
 * Les utilisateurs sont stockés en mémoire (pas de base de données).
